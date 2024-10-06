@@ -55,18 +55,6 @@
 	    <exec executable="ypp" output="0_${ant.project.name}/content/_index.pdc" logError="true">
 		<arg line="-l hugo.lua titelseite.md" />
 	    </exec>
-	   <echo message="hugo: apply"/>
-	    <apply executable="ypp" dir="0_TMP" dest="0_TMP" logError="true">
-		<arg line="-l hugo.lua" />
-		<srcfile />
-		<arg line="-o " />
-		<targetfile />
-		<fileset dir="0_TMP">
-			<include name="${ant.project.name}-kap*.md" />
-			<exclude name="${ant.project.name}-kap-h.md" />
-		</fileset>
-		<mapper type="glob" from="*.md" to="*.pdc" />
-	    </apply>
 	   <echo message="hugo: exec"/>
 	    <exec executable="CopyForHugo.sh" dir="0_TMP" logError="true">
 		<arg line="${ant.project.name}" />
